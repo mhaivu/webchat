@@ -1,10 +1,10 @@
 package com.interview.webchat.payload;
 
-public class MessageResponse {
+public class GeneralResponse {
     private String message;
     private int status;
 
-    public MessageResponse(String message) {
+    public GeneralResponse(String message) {
         this.message = message;
     }
 
