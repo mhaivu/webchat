@@ -20,12 +20,12 @@ public class UserMessage {
     private Long userMessageId;
 
     @Basic
-    @Column(name = "isDisliked")
-    private boolean isDislike;
+    @Column(name = "isDisliked", nullable = true)
+    private boolean isDisliked;
 
     @Basic
-    @Column(name = "isLiked")
-    private boolean isLike;
+    @Column(name = "isLiked", nullable = true)
+    private boolean isLiked;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
@@ -42,6 +42,11 @@ public class UserMessage {
     public UserMessage() {
     }
 
+    public UserMessage(User user, Message message) {
+        this.user = user;
+        this.message = message;
+    }
+
     public Long getUserMessageId() {
         return userMessageId;
     }
@@ -50,20 +55,20 @@ public class UserMessage {
         this.userMessageId = userMessageId;
     }
 
-    public boolean isDislike() {
-        return isDislike;
+    public boolean isDisliked() {
+        return isDisliked;
     }
 
-    public void setDislike(boolean dislike) {
-        isDislike = dislike;
+    public void setDisliked(boolean disliked) {
+        isDisliked = disliked;
     }
 
-    public boolean isLike() {
-        return isLike;
+    public boolean isLiked() {
+        return isLiked;
     }
 
-    public void setLike(boolean like) {
-        isLike = like;
+    public void setLiked(boolean liked) {
+        isLiked = liked;
     }
 
     public User getUser() {
