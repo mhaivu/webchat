@@ -30,3 +30,4 @@ Any uncertainties candidate can treat as they think it will be better for the fi
 https://documenter.getpostman.com/view/10407284/TzRNFpyn
 
 ### Database Diagram
+[Image](/Web_chat_DB_Diagram.jpg)
