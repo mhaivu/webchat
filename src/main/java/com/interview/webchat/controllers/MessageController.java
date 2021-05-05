@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/message")
 public class MessageController {
@@ -50,8 +52,15 @@ public class MessageController {
     }
 
     @GetMapping("")
-    public ResponseEntity<?> getMessages(){
-        return null;
+    public ResponseEntity<?> getMessages(Authentication authentication){
+        User user = getCurrentUser(authentication);
+
+        List<Message> messages = messageRepository.findAllByOwner(user);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(messages);
+
     }
 
     private User getCurrentUser(Authentication authentication) throws UsernameNotFoundException{
